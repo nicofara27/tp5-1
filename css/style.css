@@ -1,0 +1,40 @@
+#fondo {
+    background-color: #3F7430;
+}
+
+#botonComenzar {
+    height: 140px;
+    width: 250px;
+    margin: 39vh 0;
+}
+
+.ruleta {
+    width: 85%;
+    margin: 10% auto;
+    animation: rotation 6s infinite linear;
+}
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+.ruletaDetenida {
+    width: 85%;
+    margin: 10% auto;
+}
+
+.juegoContainer {
+    margin: 15% 0 60% 0;
+}
+input {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+
