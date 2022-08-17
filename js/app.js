@@ -3,9 +3,11 @@
 
 let generarNumero = () => {return Math.floor(Math.random() * (10 - 1 + 1) + 1);}
 let nroAleatorio;
+let intento = 0;
 
 function comenzar() {
   nroAleatorio = generarNumero();
+
   //Elimiar boton
   let boton = document.getElementById("botonComenzar");
   boton.remove();
@@ -24,6 +26,7 @@ function comenzar() {
   let juegoContainer = document.createElement("article");
   juegoContainer.classList = "juegoContainer";
   juegoContainer.innerHTML = `
+  <h3>Adivina el numero entre 1 y 10</h3>
   <input
   class="fs-3 "
   min="1"
@@ -40,6 +43,8 @@ function comenzar() {
 
 //Funcion para el boton de adivinar
 function adivinar() {
+  intento++;
+
   let inputAdivinar = document.querySelector("input");
 
   let ruletaContainer = document.getElementsByClassName("ruleta");
@@ -52,8 +57,8 @@ function adivinar() {
 
   if (parseInt(inputAdivinar.value) === nroAleatorio) {
     //Añadir a la pagina el cartel de Acierto
-    cartelAdivino.className = "text-danger text-center display-2 my-4";
-    cartelAdivino.innerHTML = `Acertó, el numero era: ${nroAleatorio}`;
+    cartelAdivino.className = "text-danger text-center display-5 fw-semibold my-1";
+    cartelAdivino.innerHTML = `Acertó en el intento ${intento}, el numero era: ${nroAleatorio}`;
     container.prepend(cartelAdivino);
 
     //Cambio de la clase de la ruleta para que se detenga al adivinar el nro
@@ -61,8 +66,8 @@ function adivinar() {
     ruletaContainer[0].classList.remove("ruleta");
   } else {
     //Añadir a la pagina el cartel de error
-    cartelAdivino.className = "text-dark text-center display-2 my-4";
-    cartelAdivino.innerHTML = `Falló, siga intentando`;
+    cartelAdivino.className = "text-dark text-center display-5 fw-semibold my-1";
+    cartelAdivino.innerHTML = `Falló en el intento ${intento}, siga intentando`;
     container.prepend(cartelAdivino);
     
     //Hacer auto focus en el input cuando se falla el intento y resetear el valor del mismo
@@ -76,6 +81,8 @@ function adivinar() {
 //Funcion para reiniciar el juego
 function reiniciar() {
   nroAleatorio = generarNumero();
+  intento = 0;
+  document.querySelector("input").value = "";
 
   //Eliminacion del cartel de acierto o error
   let seleccionCartel = document.querySelector("h2");

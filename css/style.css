@@ -9,7 +9,7 @@
 }
 
 .ruleta {
-    width: 85%;
+    width: 60%;
     margin: 10% auto;
     animation: rotation 6s infinite linear;
 }
@@ -24,12 +24,12 @@
   }
 
 .ruletaDetenida {
-    width: 85%;
+    width: 60%;
     margin: 10% auto;
 }
 
 .juegoContainer {
-    margin: 15% 0 60% 0;
+    margin: 10% 0 60% 0;
 }
 input {
     width: 100%;
